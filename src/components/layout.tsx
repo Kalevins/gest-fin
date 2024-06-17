@@ -11,6 +11,7 @@ import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/comp
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
+import { Role } from '@prisma/client';
 
 // Layout de la aplicación
 export function Layout({ children }: { children: ReactNode }) {
@@ -37,7 +38,7 @@ export function Layout({ children }: { children: ReactNode }) {
               <HomeIcon className="h-4 w-4 transition-all group-hover:scale-110" />
               <span className="sr-only">GestFin</span>
             </Link>
-            {routesApp.filter((route) => route.roles.includes(session?.user?.role)).map((route) => (
+            {routesApp.filter((route) => route.roles.includes((session?.user?.role === 'ADMIN' || session?.user?.role === 'USER') ? session?.user?.role : Role.USER)).map((route) => (
               <Tooltip key={route.path}>
                 <TooltipTrigger asChild>
                   <Link

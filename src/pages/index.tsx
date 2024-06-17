@@ -13,6 +13,7 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Pagination, PaginationContent, PaginationItem } from "@/components/ui/pagination"
+import { Role } from '@prisma/client';
 
 export default function Index() {
   const { data: session } = useSession();
@@ -44,7 +45,7 @@ export default function Index() {
     <>
       <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-          {routesApp.filter((route) => route.roles.includes(session.user.role)).map((route, index) => (
+          {routesApp.filter((route) => route.roles.includes((session?.user?.role === 'ADMIN' || session?.user?.role === 'USER') ? session?.user?.role : Role.USER)).map((route, index) => (
             <Card key={index} className='flex flex-col justify-between gap-8'>
               <CardHeader className="pb-2">
                 <CardTitle className="text-4xl">{route.name}</CardTitle>
