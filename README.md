@@ -1,40 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GestFin
 
-## Getting Started
+_Prueba técnica para PrevalentWare de un sistema de gestión de ingresos y egresos_
+### 🔧 Instalación
 
-First, run the development server:
-
-```bash
+_En el directorio del proyecto, puede ejecutar:_
+```
+npm i
+```
+```
+npx prisma generate
+```
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+_Para correr las pruebas:_
+```
+npm run test
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 📦 Resultados
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+_Puedes ver el proyecto en:_
+[GestFin](https://gest-fin.vercel.app/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+_Las credenciales de administrador son:_
+```
+email: admin@admin.com
+password: Admin_1234
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📦 Despliegue en Vercel
 
-## Learn More
+_Para desplegar el proyecto en Vercel, se debe configurar las variables de entorno_
 
-To learn more about Next.js, take a look at the following resources:
+```
+DATABASE_URL='postgres://postgres:1234@localhost:5432/gest_fin'
+DIRECT_DATABASE_URL='postgres://postgres:1234@localhost:5432/gest_fin'
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+AUTH_SECRET='secret'
+AUTH_AUTH0_ID='eiva21kqglb2vsvp'
+AUTH_AUTH0_SECRET='secret'
+AUTH_AUTH0_ISSUER='https://kevinmuz55s.us.auth0.com/'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+DEPLOY_URL='https://gest-fin.vercel.app/'
+```
 
-## Deploy on Vercel
+_Luego, se debe agregar a Build Command el comando:_
+```
+npx prisma generate && npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+_Y desplegar el proyecto_
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🛠️ Construcción
+
+* [NEXT.js](https://nextjs.org/) - Framework de React
+* [Shadcn/UI](https://ui.shadcn.com/) - Componentes de UI
+* [GraphQL](https://graphql.org/) - Lenguaje de consulta
+* [Apollo](https://www.apollographql.com/) - Cliente de GraphQL
+* [Auth0](https://auth0.com/) - Herramienta de autenticación
+* [Prisma](https://www.prisma.io/) - ORM
+* [Vitest](https://vitest.dev/) - Herramienta de testing
+
+## ✒️ Autores
+
+* **Kevin Muñoz Rengifo** - *Totalidad* - [kevinmuz55](https://github.com/kevinmuz55)
+
+## 🎁 Expresiones de Gratitud
+
+* Agradecimientos especiales a PrevalentWare por la oportunidad de realizar este proyecto.
