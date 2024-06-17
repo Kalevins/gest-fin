@@ -138,7 +138,7 @@ const server = new ApolloServer({
 
 // Función para obtener el usuario autenticado
 async function getLoggedInUser(req: NextApiRequest) {
-  const res = await fetch('http://localhost:3000/api/auth/session', {
+  const res = await fetch(`${process.env.DEPLOY_URL}/api/auth/session`, {
     headers: {
       cookie: req.headers.cookie || ''
     }

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { routesApp } from '@/lib/routes';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import logo from '/public/logo.webp'
 
 import { Role } from '@prisma/client';
 
@@ -17,7 +18,7 @@ export default function Index() {
       <main className="w-full h-dvh flex justify-center items-center">
         <Card className="w-full max-w-sm">
           <CardHeader className='flex items-center w-full'>
-            <Image src="/logo.webp" alt="Logo" width={64} height={64} />
+            <Image src={logo} alt="Logo" width={64} height={64} />
           </CardHeader>
           <CardContent className="grid gap-4">
             <CardTitle className="text-2xl text-center">GestFin</CardTitle>
