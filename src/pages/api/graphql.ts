@@ -21,7 +21,7 @@ const typeDefs = gql`
     id: ID!
     name: String!
     email: String!
-    phone: String!
+    phone: String
     role: Role!
   }
 
