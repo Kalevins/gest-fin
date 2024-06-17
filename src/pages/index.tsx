@@ -3,16 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link';
 
 import { routesApp } from '@/lib/routes';
-import { ListFilterIcon, FileIcon, CopyIcon, TruckIcon, MoveVerticalIcon, ChevronLeftIcon, ChevronRightIcon, CreditCardIcon } from "@/components/ui/icons"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuCheckboxItem } from "@/components/ui/dropdown-menu"
-import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { Pagination, PaginationContent, PaginationItem } from "@/components/ui/pagination"
+
 import { Role } from '@prisma/client';
 
 export default function Index() {
@@ -45,7 +38,7 @@ export default function Index() {
     <>
       <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-          {routesApp.filter((route) => route.roles.includes((session?.user?.role === 'ADMIN' || session?.user?.role === 'USER') ? session?.user?.role : Role.USER)).map((route, index) => (
+          {routesApp.filter((route) => route.roles.includes(session.user.role as Role)).map((route, index) => (
             <Card key={index} className='flex flex-col justify-between gap-8'>
               <CardHeader className="pb-2">
                 <CardTitle className="text-4xl">{route.name}</CardTitle>

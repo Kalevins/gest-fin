@@ -38,7 +38,7 @@ export function Layout({ children }: { children: ReactNode }) {
               <HomeIcon className="h-4 w-4 transition-all group-hover:scale-110" />
               <span className="sr-only">GestFin</span>
             </Link>
-            {routesApp.filter((route) => route.roles.includes((session?.user?.role === 'ADMIN' || session?.user?.role === 'USER') ? session?.user?.role : Role.USER)).map((route) => (
+            {routesApp.filter((route) => route.roles.includes(session?.user?.role as Role)).map((route) => (
               <Tooltip key={route.path}>
                 <TooltipTrigger asChild>
                   <Link
