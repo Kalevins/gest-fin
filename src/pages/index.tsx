@@ -4,18 +4,37 @@ import Link from 'next/link';
 
 import { routesApp } from '@/lib/routes';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import { useToast } from "@/components/ui/use-toast"
 import { Button } from "@/components/ui/button"
 import logo from '/public/logo.webp'
+import { MoveVerticalIcon } from '@/components/ui/icons';
+import { InfoIcon } from '@/components/ui/icons';
 
 import { Role } from '@prisma/client';
+import { useEffect } from 'react';
 
 export default function Index() {
   const { data: session } = useSession();
+  const { toast } = useToast()
+
+  const handleToast = () => {
+    toast({
+      title: "Para ingresar a la aplicación como administrador puedes usar las siguientes credenciales:",
+      description: "admin@admin.com - Admin_1234",
+    })
+  }
+
+  useEffect(() => {
+    handleToast()
+  }, [])
 
   // Si no hay sesión, muestra el botón de inicio de sesión
   if (!session) {
     return (
       <main className="w-full h-dvh flex justify-center items-center">
+        <Button onClick={() => handleToast()} className="fixed top-4 right-4 rounded-full p-2 w-10 h-10">
+          <InfoIcon width={24} height={24} />
+        </Button>
         <Card className="w-full max-w-sm">
           <CardHeader className='flex items-center w-full'>
             <Image src={logo} alt="Logo" width={64} height={64} />
