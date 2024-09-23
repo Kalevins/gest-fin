@@ -37,10 +37,9 @@ export default function Index() {
         </Button>
         <Card className="w-full max-w-sm">
           <CardHeader className='flex items-center w-full'>
-            <Image src={logo} alt="Logo" width={64} height={64} />
+            <Image src={logo} alt="Logo" width={200} height={64} />
           </CardHeader>
           <CardContent className="grid gap-4">
-            <CardTitle className="text-2xl text-center">GestFin</CardTitle>
             <CardDescription className="text-center">
               Para ingresar a la aplicación, por favor inicia sesión.
             </CardDescription>
