@@ -25,7 +25,7 @@ export default function Index() {
   }
 
   useEffect(() => {
-    handleToast()
+    if (!session) handleToast()
   }, [])
 
   // Si no hay sesión, muestra el botón de inicio de sesión
